@@ -13,5 +13,5 @@ Dasbord
 
 
 @section('content')
-dashboard
+<h1 class="h1b">Dashboard</h1>
 @endsection

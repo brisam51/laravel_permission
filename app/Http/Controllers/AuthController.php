@@ -11,12 +11,15 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class AuthController extends Controller
 {
+    //call login page
     public function login()
     {
-        //dd(Hash::make('1234'));
+      // dd(Hash::make('1234'));
         return view('auth.login');
     }
 
+
+    //chek authentication
     public function authLogin(Request $request)
     {
         $userCridentials = $request->only('email', 'password');
@@ -27,6 +30,8 @@ class AuthController extends Controller
         return back()->with('error', 'email or Password incorrect');
     }
 
+
+    //make logout
     public function dashboard()
     {
 
@@ -36,17 +41,6 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect(url(''));
-        // try {
-        //     $request->session()->flush();
-        //     Auth::Logout();
-        //     return response()->json([
-        //         'success' => true,
-        //     ]);
-        // } catch (\Exception $e) {
-        //     return response()->json([
-        //         'success' => false,
-        //         'msg' => $e->getMessage()
-        //     ]);
-        // }
+
     }
 }//
